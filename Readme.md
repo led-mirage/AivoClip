@@ -10,9 +10,9 @@ Copyright (c) 2024 led-mirage
 
 ## スクリーンショット
 
-<img width="189" alt="screenshot" src="doc/screenshot.png">
+<img width="189" alt="screenshot" src="https://github.com/led-mirage/AivoClip/assets/139528700/724acc5d-1888-4c2a-9b84-3d398c2a07e5">
 
-https://github.com/led-mirage/VoivoClip/assets/139528700/24307f87-4b5b-4f0c-837a-66c164acba4e
+https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-6473affa555d
 
 ## 機能
 
