@@ -65,6 +65,9 @@ class AIVoice:
         try:
             tts_control = cls._tts_control
             tts_control.Connect()
+            from AI.Talk.Editor.Api import HostStatus
+            while tts_control.Status == HostStatus.Busy:
+                time.sleep(0.2)
             tts_control.CurrentVoicePresetName = voice_name
             tts_control.Text = text
             play_time = tts_control.GetPlayTime()
@@ -82,3 +85,13 @@ class AIVoice:
             cls._tts_control = None
             print(err)
             raise
+
+    # WAVEファイルを保存する（talkメソッドを呼び出したあとに呼び出す必要がある）
+    @classmethod
+    def save_wavefile(cls, filepath: str) -> None:
+        tts_control = cls._tts_control
+        tts_control.Connect()
+        from AI.Talk.Editor.Api import HostStatus
+        while tts_control.Status == HostStatus.Busy:
+            time.sleep(0.2)
+        tts_control.SaveAudioToFile(filepath)

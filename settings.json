@@ -1,5 +1,6 @@
 {
-    "file_ver": 1,
+    "file_ver": 2,
     "speaker_id": "紲星 あかり",
-    "aivoice_install_path": "%ProgramW6432%/AI/AIVoice/AIVoiceEditor/AI.Talk.Editor.Api.dll"
+    "aivoice_install_path": "%ProgramW6432%/AI/AIVoice/AIVoiceEditor/AI.Talk.Editor.Api.dll",
+    "wavefile_outdir": ""
 }

@@ -6,8 +6,10 @@
 # このソースコードは MITライセンス の下でライセンスされています。
 # ライセンスの詳細については、このプロジェクトのLICENSEファイルを参照してください。
 
+from datetime import datetime
 import os
 import queue
+import re
 import sys
 import tkinter as tk
 from tkinter import messagebox
@@ -235,8 +237,31 @@ class MainWindow:
         line = line.strip("\r\n-　 ")
         if line != "":
             sentences = line.split("。")
+            sentences = [s + "。" for s in sentences if s]
+            if line[-1] != "。":
+                sentences[-1] = sentences[-1][:-1]
+
             for sentence in sentences:
                 if not self.stop_event.is_set():
                     AIVoice.talk(App.settings.get_speaker_id(), sentence, self.stop_event)
+                    wavefile_outdir = App.settings.get_wavefile_outdir()
+                    if wavefile_outdir != "":
+                        AIVoice.save_wavefile(self.get_wavefile_path(wavefile_outdir, line))
                 else:
                     break
+    
+    # WAVEファイルの主力ファイル名を取得する
+    def get_wavefile_path(self, outdir, line):
+        now = datetime.now()
+        filename = f"{now.strftime("%Y%m%d%H%M%S")}_{line[:10]}"
+        filename = self.sanitize_filename(filename)
+        path = os.path.join(outdir, filename)
+        return path
+
+    # ファイル名として使えない文字列をアンダースコアに置き換える
+    def sanitize_filename(self, filename):
+        # OSによっては異なるけど、一般的に使用されん文字
+        invalid_chars = r'[<>:"\\/|?*\x00-\x1F]'
+        # 無効な文字をアンダースコアに置き換える
+        sanitized = re.sub(invalid_chars, '_', filename)
+        return sanitized

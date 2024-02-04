@@ -39,7 +39,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 以下のリンクから AivoClip.ZIP をダウンロードして、作成したフォルダに展開してください。
 
-https://github.com/led-mirage/AivoClip/releases/tag/v0.1.0
+https://github.com/led-mirage/AivoClip/releases/tag/v0.2.0
 
 #### 3. 実行
 
@@ -97,6 +97,10 @@ A.I.VOICEのキャラクター名（プリセット名）を記載します。�
 
 A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファイルのパスを記載してください。A.I.VOICEを既定の場所にインストールした場合は変更する必要はありません。別の場所にインストールした場合はこの値を変更してください。
 
+#### ✨ wavefile_outdir（既定値 空文字列）
+
+読み上げた音声を自動保存するディレクトリを指定します。空文字列の場合はファイルは保存されません。
+
 ## 使用しているライブラリ
 
 ### 🔖 pyperclip 1.8.2 
@@ -104,7 +108,7 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 ホームページ： https://github.com/asweigart/pyperclip/tree/master  
 ライセンス：[BSD 3-Clause "New" or "Revised" License](https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt)
 
-### 🔖 Pillow 10.1.0
+### 🔖 Pillow 10.2.0
 
 ホームページ： https://python-pillow.org/  
 ライセンス：[HPND License](https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE)
@@ -125,3 +129,9 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 ### 0.1.0 (2024/01/07)
 
 - ファーストリリース
+
+### 0.2.0 (2024/02/04)
+
+- 音声ファイル（WAVEファイル）を自動保存する機能を追加
+- ローカルPCでビルドしたをpyinstaller使用するよう変更（誤検知対策）
+- VOICEVOX 0.16.1で動作確認
