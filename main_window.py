@@ -243,6 +243,8 @@ class MainWindow:
 
             for sentence in sentences:
                 if not self.stop_event.is_set():
+                    sentence = self.replace_text(sentence)
+                    print(sentence)
                     AIVoice.talk(App.settings.get_speaker_id(), sentence, self.stop_event)
                     wavefile_outdir = App.settings.get_wavefile_outdir()
                     if wavefile_outdir != "":
@@ -250,6 +252,14 @@ class MainWindow:
                 else:
                     break
     
+    # テキストを置換する
+    def replace_text(self, text):
+        for item in App.settings.get_replacements():
+            pattern = item["pattern"]
+            replacement = item["replacement"]
+            text = re.sub(pattern, replacement, text)
+        return text
+
     # WAVEファイルの主力ファイル名を取得する
     def get_wavefile_path(self, outdir, line):
         now = datetime.now()
