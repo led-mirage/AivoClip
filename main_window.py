@@ -234,6 +234,7 @@ class MainWindow:
     # １行を処理する
     def process_line(self, line):
         print(line)
+        line = self.replace_text(line)
         line = line.strip("\r\n-　 ")
         if line != "":
             sentences = line.split("。")
@@ -243,8 +244,6 @@ class MainWindow:
 
             for sentence in sentences:
                 if not self.stop_event.is_set():
-                    sentence = self.replace_text(sentence)
-                    print(sentence)
                     AIVoice.talk(App.settings.get_speaker_id(), sentence, self.stop_event)
                     wavefile_outdir = App.settings.get_wavefile_outdir()
                     if wavefile_outdir != "":

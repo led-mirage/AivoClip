@@ -39,7 +39,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 以下のリンクから AivoClip.ZIP をダウンロードして、作成したフォルダに展開してください。
 
-https://github.com/led-mirage/AivoClip/releases/tag/v0.3.0
+https://github.com/led-mirage/AivoClip/releases/tag/v0.3.1
 
 #### 3. 実行
 
@@ -132,10 +132,10 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 
 VirusTotalでのチェック結果は以下の通りです（2024/04/13 v0.3.0）
 
-- AivoClip.exe … 69個中4個のアンチウィルスエンジンで検出
-- AivoClipNC.exe … 70個中4個のアンチウィルスエンジンで検出
+- AivoClip.exe … 73個中4個のアンチウィルスエンジンで検出
+- AivoClipNC.exe … 74個中5個のアンチウィルスエンジンで検出
 
-<img src="doc/virustotal_0.3.0.png" width="600">
+<img src="doc/virustotal_0.3.1.png" width="600">
 
 ## 使用しているライブラリ
 
@@ -175,3 +175,7 @@ VirusTotalでのチェック結果は以下の通りです（2024/04/13 v0.3.0�
 ### 0.3.0 (2024/04/13)
 
 - 置換文字列を設定できるように変更（正規表現で指定）
+
+### 0.3.1 (2024/06/01)
+
+- 正規表現で置換する処理を微修正
