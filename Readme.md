@@ -39,7 +39,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 以下のリンクから AivoClip.ZIP をダウンロードして、作成したフォルダに展開してください。
 
-https://github.com/led-mirage/AivoClip/releases/tag/v0.3.1
+https://github.com/led-mirage/AivoClip/releases/tag/v0.3.2
 
 #### 3. 実行
 
@@ -81,6 +81,21 @@ A.I.VOICE を起動したのち、以下のコマンドを実行するとアプ�
 
 ```bash
 python application.py
+```
+
+#### 6. 起動用のバッチファイル（オプション）
+
+以下のような起動用のバッチファイルを用意しておくと便利です。
+
+```bat
+start pythonw application.py
+```
+
+Pythonの仮想環境を使用している場合は、以下の例のようにすればOKです。
+
+```bat
+call venv\scripts\activate
+start pythonw application.py
 ```
 
 ## 設定
@@ -130,12 +145,12 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 
 誤認問題が解決できるのが一番いいのですが、いい方法が見つかっていないので申し訳ありませんがご了承ください。
 
-VirusTotalでのチェック結果は以下の通りです（2024/04/13 v0.3.0）
+VirusTotalでのチェック結果は以下の通りです（2024/06/15 v0.3.2）
 
-- AivoClip.exe … 73個中4個のアンチウィルスエンジンで検出
-- AivoClipNC.exe … 74個中5個のアンチウィルスエンジンで検出
+- AivoClip.exe … 74個中5個のアンチウィルスエンジンで検出
+- AivoClipNC.exe … 73個中9個のアンチウィルスエンジンで検出
 
-<img src="doc/virustotal_0.3.1.png" width="600">
+<img src="doc/virustotal_0.3.2.png" width="600">
 
 ## 使用しているライブラリ
 
@@ -179,3 +194,9 @@ VirusTotalでのチェック結果は以下の通りです（2024/04/13 v0.3.0�
 ### 0.3.1 (2024/06/01)
 
 - 正規表現で置換する処理を微修正
+
+### 0.3.2 (2024/06/15)
+
+- プログラム引数で設定ファイル名を渡せるように変更
+- pillowのバージョンを10.3.0に更新
+- PyInstallerのバージョンを6.7.0に更新
