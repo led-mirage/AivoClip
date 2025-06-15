@@ -1,6 +1,10 @@
 # <img src="image/application.ico" width="48"> AivoClip
 
-Copyright (c) 2024 led-mirage
+[![GitHub All Releases](https://img.shields.io/github/downloads/led-mirage/AivoClip/total?color=blue)](https://github.com/led-mirage/AivoClip/releases)
+[![GitHub release](https://img.shields.io/github/v/release/led-mirage/AivoClip?color=blue)](https://github.com/led-mirage/AivoClip/releases)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+Copyright (c) 2024-2025 led-mirage
 
 ## 概要
 
