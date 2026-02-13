@@ -2,7 +2,7 @@
 #
 # メインウィンドウクラス
 #
-# Copyright (c) 2024 led-mirage
+# Copyright (c) 2024-2026 led-mirage
 # このソースコードは MITライセンス の下でライセンスされています。
 # ライセンスの詳細については、このプロジェクトのLICENSEファイルを参照してください。
 
@@ -39,7 +39,7 @@ class MainWindow:
         self.lock = threading.Lock()
 
         self.root = tk.Tk()
-        window_width = 244
+        window_width = 305
         window_height = 94
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
@@ -95,26 +95,26 @@ class MainWindow:
             options.append(speaker)
             if speaker == App.settings.get_speaker_id():
                 current = idx
-        combo = ttk.Combobox(self.root, values=options, width=34, state="readonly")
+        combo = ttk.Combobox(self.root, values=options, width=33, state="readonly")
         combo.current(current)
         combo.bind("<<ComboboxSelected>>", self.speaker_changed)
         return combo
 
     # 開始ボタンを作成する
     def create_start_button(self):
-        button = tk.Button(self.root, text="開始", image=self.icon_start, width=60, height=36,
+        button = tk.Button(self.root, text="開始", image=self.icon_start, width=80, height=36,
                            compound="left", padx=10, command=self.start_monitoring)
         return button
 
     # 停止ボタンを作成する
     def create_stop_button(self):
-        button = tk.Button(self.root, text="停止", image=self.icon_stop, width=60, height=36,
+        button = tk.Button(self.root, text="停止", image=self.icon_stop, width=80, height=36,
                            compound="left", padx=10, command=self.stop_monitoring)
         return button
 
     # リピートボタンを作成する
     def create_repeat_button(self):
-        button = tk.Button(self.root, image=self.icon_repeat, width=30, height=36, padx=10, command=self.repeat_speech)
+        button = tk.Button(self.root, image=self.icon_repeat, width=45, height=36, padx=10, command=self.repeat_speech)
         return button
 
     # ウィジェットを配置する
