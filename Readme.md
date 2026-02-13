@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/led-mirage/AivoClip?color=blue)](https://github.com/led-mirage/AivoClip/releases)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Copyright (c) 2024-2025 led-mirage
+Copyright (c) 2024-2026 led-mirage
 
 ## 概要
 
@@ -27,9 +27,9 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 ## 動作確認環境
 
-- Windows 11 Pro 23H2
+- Windows 11 Pro 25H2
 - Python 3.12.0
-- A.I.VOICE Editor 1.4.9.0
+- A.I.VOICE Editor 1.4.10.0
 
 ## 実行方法
 
@@ -43,7 +43,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 以下のリンクから AivoClip.ZIP をダウンロードして、作成したフォルダに展開してください。
 
-https://github.com/led-mirage/AivoClip/releases/tag/v0.3.2
+https://github.com/led-mirage/AivoClip/releases/tag/v0.3.3
 
 #### 3. 実行
 
@@ -149,12 +149,12 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 
 誤認問題が解決できるのが一番いいのですが、いい方法が見つかっていないので申し訳ありませんがご了承ください。
 
-VirusTotalでのチェック結果は以下の通りです（2024/06/15 v0.3.2）
+VirusTotalでのチェック結果は以下の通りです（2024/02/13 v0.3.3）
 
-- AivoClip.exe … 74個中5個のアンチウィルスエンジンで検出
-- AivoClipNC.exe … 73個中9個のアンチウィルスエンジンで検出
+- AivoClip.exe … [72個中2個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/89c97111ff948866b36254c038c9235af51dbb4815f243f25d8efc26600730a4/detection)
+- AivoClipNC.exe … [72個中4個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/dfcf93f1f23655759354358b136570c2103daad3495d06332da44ab5e5684808/detection)
 
-<img src="doc/virustotal_0.3.2.png" width="600">
+<img src="doc/virustotal_0.3.3.png" width="600">
 
 ## 使用しているライブラリ
 
@@ -163,7 +163,7 @@ VirusTotalでのチェック結果は以下の通りです（2024/06/15 v0.3.2�
 ホームページ： https://github.com/asweigart/pyperclip/tree/master  
 ライセンス：[BSD 3-Clause "New" or "Revised" License](https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt)
 
-### 🔖 Pillow 10.2.0
+### 🔖 Pillow 12.1.1
 
 ホームページ： https://python-pillow.org/  
 ライセンス：[HPND License](https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE)
@@ -175,7 +175,7 @@ VirusTotalでのチェック結果は以下の通りです（2024/06/15 v0.3.2�
 
 ## ライセンス
 
-© 2024 led-mirage
+© 2024-2026 led-mirage
 
 本アプリケーションは [MITライセンス](https://opensource.org/licenses/MIT) の下で公開されています。詳細については、プロジェクトに含まれる LICENSE ファイルを参照してください。
 
@@ -204,3 +204,9 @@ VirusTotalでのチェック結果は以下の通りです（2024/06/15 v0.3.2�
 - プログラム引数で設定ファイル名を渡せるように変更
 - pillowのバージョンを10.3.0に更新
 - PyInstallerのバージョンを6.7.0に更新
+
+### 0.3.3 (2026/02/13)
+
+- 高DPIディスプレイ対応（文字がぼやけないようにする）
+- pillowのバージョンを12.1.1に更新（CVE-2026-25990対応）
+- PyInstallerのバージョンを6.16.0に更新
