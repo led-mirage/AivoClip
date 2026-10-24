@@ -14,7 +14,7 @@ from settings import Settings
 from aivoice import AIVoice
 
 APP_NAME = "AivoClip"
-APP_VERSION = "0.3.3"
+APP_VERSION = "0.3.4"
 COPYRIGHT = "Copyright 2024-2026 led-mirage"
 
 SETTING_FILE = "settings.json"

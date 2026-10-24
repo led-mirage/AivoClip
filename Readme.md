@@ -43,7 +43,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 
 以下のリンクから AivoClip.ZIP をダウンロードして、作成したフォルダに展開してください。
 
-https://github.com/led-mirage/AivoClip/releases/tag/v0.3.3
+https://github.com/led-mirage/AivoClip/releases/tag/v0.3.4
 
 #### 3. 実行
 
@@ -149,12 +149,12 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 
 誤認問題が解決できるのが一番いいのですが、いい方法が見つかっていないので申し訳ありませんがご了承ください。
 
-VirusTotalでのチェック結果は以下の通りです（2024/02/13 v0.3.3）
+VirusTotalでのチェック結果は以下の通りです（2024/10/24 v0.3.4）
 
-- AivoClip.exe … [72個中2個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/89c97111ff948866b36254c038c9235af51dbb4815f243f25d8efc26600730a4/detection)
-- AivoClipNC.exe … [72個中4個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/dfcf93f1f23655759354358b136570c2103daad3495d06332da44ab5e5684808/detection)
+- AivoClip.exe … [69個中2個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/67833c1cb00f79e4b63a7f77444559ec72c961fe53fcf75a0f02c3bdc4cc1637/detection)
+- AivoClipNC.exe … [70個中3個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/b95e7c852cc2f284df0043bee6b00df03394c34493be69b1a0502d0048b47275/detection)
 
-<img src="doc/virustotal_0.3.3.png" width="600">
+<img src="doc/virustotal_0.3.4.png" width="600">
 
 ## 使用しているライブラリ
 
@@ -163,10 +163,10 @@ VirusTotalでのチェック結果は以下の通りです（2024/02/13 v0.3.3�
 ホームページ： https://github.com/asweigart/pyperclip/tree/master  
 ライセンス：[BSD 3-Clause "New" or "Revised" License](https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt)
 
-### 🔖 Pillow 12.1.1
+### 🔖 Pillow 13.0.0
 
 ホームページ： https://python-pillow.org/  
-ライセンス：[HPND License](https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE)
+ライセンス：[MIT-CMU License](https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE)
 
 ### 🔖 pythonnet 3.0.3
 
@@ -210,3 +210,8 @@ VirusTotalでのチェック結果は以下の通りです（2024/02/13 v0.3.3�
 - 高DPIディスプレイ対応（文字がぼやけないようにする）
 - pillowのバージョンを12.1.1に更新（CVE-2026-25990対応）
 - PyInstallerのバージョンを6.16.0に更新
+
+### 0.3.4 (2026/10/24)
+
+- pillowのバージョンを13.0.0に更新
+- requirements.txtの文字コードをBOMなしUTF-8に変更
