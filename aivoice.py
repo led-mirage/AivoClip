@@ -53,10 +53,9 @@ class AIVoice:
             for voice in tts_control.VoicePresetNames:
                 speakers.append(voice)
             return speakers
-        except Exception as err:
+        except Exception:
             cls._tts_control = None
-            print(err)
-            return None
+            raise
 
     # 話す
     @classmethod

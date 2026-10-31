@@ -10,14 +10,17 @@ import argparse
 import sys, os
 from tkinter import messagebox
 
+from app_logging import get_logger, setup_logging
 from settings import Settings
 from aivoice import AIVoice
 
 APP_NAME = "AivoClip"
-APP_VERSION = "0.3.4"
+APP_VERSION = "0.4.0"
 COPYRIGHT = "Copyright 2024-2026 led-mirage"
 
 SETTING_FILE = "settings.json"
+
+logger = get_logger("application")
 
 class Application:
     # コンストラクタ
@@ -39,14 +42,15 @@ class Application:
         self.settings = Settings(args.setting)
         self.settings.load()
 
-        AIVoice.init(self.settings.get_aivoice_install_path())
-
-        self.speakers = AIVoice.get_speakers()
-        if self.speakers is None:
+        try:
+            AIVoice.init(self.settings.get_aivoice_install_path())
+            self.speakers = AIVoice.get_speakers()
+        except Exception:
+            logger.exception("Failed to get speakers from A.I.VOICE")
+            logger.info(f"{APP_NAME} {APP_VERSION} stopped because A.I.VOICE is unavailable")
             message = "A.I.Voice が利用できません"
-            print(message)
             messagebox.showerror(f"{APP_NAME}", message)
-            sys.exit()
+            raise SystemExit(1)
 
         from main_window import MainWindow
         main_window = MainWindow(self)
@@ -74,6 +78,28 @@ class Application:
         print(f"")
 
 if __name__ == "__main__":
-    from application import Application
-    app = Application()
-    app.start()
+    log_file_path = setup_logging()
+
+    if log_file_path is not None:
+        logger.info(f"{APP_NAME} {APP_VERSION} started")
+
+    try:
+        from application import Application
+        app = Application()
+        app.start()
+    except Exception as err:
+        logger.exception("Application failed")
+
+        message = (
+            "An unexpected error occurred while the application was running.\n\n"
+            f"{type(err).__name__}: {err}"
+        )
+        try:
+            from ctypes import windll
+            windll.user32.MessageBoxW(None, message, APP_NAME, 0x10)
+        except Exception:
+            pass
+
+        raise SystemExit(1)
+    else:
+        logger.info(f"{APP_NAME} {APP_VERSION} stopped normally")

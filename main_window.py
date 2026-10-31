@@ -20,10 +20,12 @@ import threading
 import pyperclip
 from PIL import Image, ImageTk
 
+from app_logging import get_logger, get_active_log_file_path
 from application import Application, APP_NAME, APP_VERSION
 from aivoice import AIVoice 
 
 App = None
+logger = get_logger(__name__)
 
 class MainWindow:
     # コンストラクタ
@@ -39,6 +41,7 @@ class MainWindow:
         self.lock = threading.Lock()
 
         self.root = tk.Tk()
+        self.root.report_callback_exception = self.handle_tk_exception
         window_width = 305
         window_height = 94
         screen_width = self.root.winfo_screenwidth()
@@ -62,6 +65,28 @@ class MainWindow:
         self.start_button = self.create_start_button()
         self.stop_button = self.create_stop_button()
         self.repeat_button = self.create_repeat_button()
+
+    # Tkinterの例外ハンドラ（メインスレッドで動作する）
+    def handle_tk_exception(self, exc_type, exc_value, tb):
+        logger.error(
+            "Unhandled Tkinter callback exception",
+            exc_info=(exc_type, exc_value, tb),
+        )
+
+        log_file_path = get_active_log_file_path()
+        if log_file_path is not None:
+            message = (
+                "An unexpected error occurred.\n"
+                f"See the log file for details:\n\n{log_file_path}"
+            )
+        else:
+            message = (
+                "An unexpected error occurred.\n"
+                "The error details could not be logged because the log file "
+                "could not be created.\n\n"
+                f"{exc_type.__name__}: {exc_value}"
+            )
+        messagebox.showerror(APP_NAME, message, parent=self.root)
 
     # 終了処理
     def terminate(self):
@@ -136,7 +161,9 @@ class MainWindow:
         if not self.monitoring:
             pyperclip.copy("")
             self.stop_event.clear()
-            self.monitoring_thread = threading.Thread(target=self.monitor_clipboard)
+            self.monitoring_thread = threading.Thread(
+                target=self.monitor_clipboard,
+                name="ClipboardMonitor")
             self.monitoring_thread.start()
 
             self.monitoring = True
@@ -211,6 +238,8 @@ class MainWindow:
 
     # クリップボードを監視する（ワーカースレッド）    
     def monitor_clipboard(self):
+        logger.info("Clipboard monitoring started")
+
         try:
             self.set_last_speech_text("")
             while not self.stop_event.is_set():
@@ -226,11 +255,13 @@ class MainWindow:
                     self.queue.put("speech finished")
                 time.sleep(0.5)
         except Exception as err:
+            logger.exception("Clipboard monitoring failed")
             self.queue.put("unexpected error")
-            print(err)
+        else:
+            logger.info("Clipboard monitoring stopped normally")
         finally:
             self.queue.put("monitoring thread terminated")
-    
+
     # １行を処理する
     def process_line(self, line):
         print(line)
