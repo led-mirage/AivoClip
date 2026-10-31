@@ -28,7 +28,7 @@ https://github.com/led-mirage/AivoClip/assets/139528700/afeaf908-8bdd-4d31-b873-
 ## 動作確認環境
 
 - Windows 11 Pro 25H2
-- Python 3.12.0
+- Python 3.14.10
 - A.I.VOICE Editor 1.4.10.0
 
 ## 実行方法
@@ -149,16 +149,16 @@ A.I.VOICEを自動起動するために使用します。A.I.VOICEのDLLファ�
 
 誤認問題が解決できるのが一番いいのですが、いい方法が見つかっていないので申し訳ありませんがご了承ください。
 
-VirusTotalでのチェック結果は以下の通りです（2024/10/24 v0.3.4）
+VirusTotalでのチェック結果は以下の通りです（2026/10/31 v0.4.0）
 
-- AivoClip.exe … [69個中2個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/67833c1cb00f79e4b63a7f77444559ec72c961fe53fcf75a0f02c3bdc4cc1637/detection)
-- AivoClipNC.exe … [70個中3個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/b95e7c852cc2f284df0043bee6b00df03394c34493be69b1a0502d0048b47275/detection)
+- AivoClip.exe … [71個中1個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/fafe25351f209324bcd1768e57da0496f6373820ea70ba65c7d306e8821f6161/detection)
+- AivoClipNC.exe … [70個中1個のアンチウィルスエンジンで検出](https://www.virustotal.com/gui/file/6e5fcac77dadbd9388c57a475032d57b545b3ff48966bc754d9ca8f6f1441112/detection)
 
-<img src="doc/virustotal_0.3.4.png" width="600">
+<img src="doc/virustotal_0.4.0.png" width="600">
 
 ## 使用しているライブラリ
 
-### 🔖 pyperclip 1.8.2 
+### 🔖 pyperclip 1.11.0
 
 ホームページ： https://github.com/asweigart/pyperclip/tree/master  
 ライセンス：[BSD 3-Clause "New" or "Revised" License](https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt)
@@ -168,7 +168,7 @@ VirusTotalでのチェック結果は以下の通りです（2024/10/24 v0.3.4�
 ホームページ： https://python-pillow.org/  
 ライセンス：[MIT-CMU License](https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE)
 
-### 🔖 pythonnet 3.0.3
+### 🔖 pythonnet 3.2.1
 
 ホームページ： https://github.com/pythonnet/pythonnet/  
 ライセンス：[MIT License](https://github.com/pythonnet/pythonnet/blob/master/LICENSE)
@@ -215,3 +215,13 @@ VirusTotalでのチェック結果は以下の通りです（2024/10/24 v0.3.4�
 
 - pillowのバージョンを13.0.0に更新
 - requirements.txtの文字コードをBOMなしUTF-8に変更
+
+### 0.4.0 (2026/10/31)
+
+- Pythonのバージョンを3.14.10に更新
+- pyperclipのバージョンを1.11.0に更新
+- pythonnetのバージョンを3.2.1に更新
+- PyInstallerのバージョンを6.22.3に更新
+- ログファイルの出力と、予期しない例外の記録機能を追加
+- specファイルを直接参照せずにPyInstallerでビルドするよう変更
+- EXEファイルに製品バージョンと著作権情報を追加
